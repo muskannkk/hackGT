@@ -15,10 +15,15 @@ def days(request):
     if request.user.is_authenticated:
         profile = Profile.objects.get(user=request.user)
         if request.method == "POST":
-            daytimeProducts = request.POST['daytimeProducts']
-
+            daytimeProducts = request.POST['textbox2']
+            nighttimeProducts = request.POST['textbox3']
+            dietToday = request.POST['textbox4']
+            additionalNotes = request.POST['textbox5']
 
     return render(request,'skinCare/days.html')
+
+def profile(request):
+    return render(request, 'skinCare/profile.html')
 def login(request):
     if request.method == "POST":
         username = request.POST['username']

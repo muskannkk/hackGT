@@ -6,6 +6,7 @@ from django.dispatch import receiver
 
 # Create your models here.
 class Day(models.Model):
+    date = models.DateField()
     #dailyPicture = models.ImageField(upload_to='day/')
     notes = models.TextField()
     dayProducts = models.TextField()
