@@ -2,11 +2,81 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
-    <link rel="stylesheet" href="{% static 'skinCare/daysStyles.css' %}">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>month Overview</title>
+    <style>
+        body {
+            font-family: 'Courier New', sans-serif;
+            background-color: #fff9c4;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 15px;
+        }
+
+        .form-container {
+            max-width: 4000px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .input-group {
+            margin-bottom: 50px;
+        }
+
+        label {
+            display: block;
+            font-size: 14px;
+            margin-bottom: 8px;
+            color: #333;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            font-size: 16px;
+            box-sizing: border-box;
+        }
+    </style>
 </head>
 <body>
-$END$
+
+    <h1>Date</h1>
+
+    <div class="form-container">
+        <div class="input-group">
+            <label for="textbox1">Upload Today's Picture</label>
+            <input type="text" id="textbox1" name="textbox1">
+        </div>
+
+        <div class="input-group">
+            <label for="textbox2">Daytime Products</label>
+            <input type="text" id="textbox2" name="textbox2">
+        </div>
+
+        <div class="input-group">
+            <label for="textbox3">Nightime Products</label>
+            <input type="text" id="textbox3" name="textbox3">
+        </div>
+
+        <div class="input-group">
+            <label for="textbox4">Diet Today</label>
+            <input type="text" id="textbox4" name="textbox4">
+        </div>
+
+        <div class="input-group">
+            <label for="textbox5">Additional Notes</label>
+            <input type="text" id="textbox5" name="textbox5">
+        </div>
+    </div>
+
 </body>
 </html>

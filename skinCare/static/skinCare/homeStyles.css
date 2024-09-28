@@ -3,12 +3,12 @@ h1{
    color: #1434A4;
 }
 .box {
-   background-color: #f0f0f0; /* Light gray background */
-   border: 1px solid #ccc;    /* Light gray border */
-   border-radius: 8px;        /* Rounded corners */
-   padding: 20px;             /* Inner space */
-   margin: 20px 0;           /* Space above and below */
-   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+   background-color: #f0f0f0;
+   border: 1px solid #ccc;   =
+   border-radius: 8px;
+   padding: 20px;
+   margin: 20px 0;
+   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 button {
    width: 100%;
