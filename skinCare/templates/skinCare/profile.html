@@ -1,10 +1,71 @@
 <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Profile</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Page</title>
+    <style>
+        body {
+            font-family: "Courier New", sans-serif;
+            background-color: #fff9c4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .profile-container {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            text-align: center;
+            max-width: 1400px;
+            height: 80vh;
+            width: 100%;
+        }
+        .profile-picture {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 20px;
+        }
+        .username {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+        }
+        .email {
+            font-size: 1em;
+            color: #666;
+            margin-bottom: 20px;
+        }
+        .btn-gallery {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 1em;
+            color: black;
+            background-color: #fff9c4;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        .btn-gallery:hover {
+            background-color: #fff9c4;
+        }
+    </style>
 </head>
 <body>
+
+    <div class="profile-container">
+        <img src="profile-picture.jpg" alt="Profile Picture" class="profile-picture">
+        <div class="username">User</div>
+        <div class="email">user@email.com</div>
+        <a href="calendar.html" class="btn-gallery">View My Journal</a>
+    </div>
 
 </body>
 </html>
