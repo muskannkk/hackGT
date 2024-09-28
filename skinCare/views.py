@@ -10,7 +10,11 @@ from skinCare.models import Profile
 def homePage(request):
     return render(request, 'skinCare/homePage.html')
 def calendar(request):
-    return render(request,'skinCare/calendar.html')
+    days_in_month = list(range(1, 32))  # Adjust as needed for each month
+    context = {
+        'days_in_month': days_in_month,
+    }
+    return render(request, 'skinCare/calendar.html', context)
 def days(request):
     if request.user.is_authenticated:
         profile = Profile.objects.get(user=request.user)
@@ -20,7 +24,7 @@ def days(request):
             dietToday = request.POST['textbox4']
             additionalNotes = request.POST['textbox5']
 
-    return render(request,'skinCare/days.html')
+    return render(request, 'skinCare/days.html', {'month': month, 'day': day})
 
 def profile(request):
     return render(request, 'skinCare/profile.html')
