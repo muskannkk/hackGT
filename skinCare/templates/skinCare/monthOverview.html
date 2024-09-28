@@ -1,1 +1,140 @@
 {% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skincare Monthly Overview</title>
+    <style>
+        body {
+            font-family: "Courier New", sans-serif;
+            background-color: #fff9c4;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        .month-section {
+            background-color: white;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .month-title {
+            font-size: 1.5em;
+            color: #555;
+            margin-bottom: 10px;
+        }
+        .notes {
+            width: 95%;
+            height: 100px;
+            padding: 10px;
+            font-size: 1em;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            resize: none;
+        }
+        .btn-save {
+            padding: 10px 15px;
+            font-size: 1em;
+            color: black;
+            background-color: #fff9c4;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .btn-save:hover {
+            background-color: #fff9c4;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Skincare Monthly Overview</h1>
+         <form action="/submit-profile" method="POST"></form>
+        <button type="submit">Profile</button>
+        <div class="month-section">
+            <div class="month-title">January</div>
+            <textarea class="notes" placeholder="Write your skincare notes for January..."></textarea>
+            <button class="btn-save">Save Notes</button>
+        </div>
+
+        <div class="month-section">
+            <div class="month-title">February</div>
+            <textarea class="notes" placeholder="Write your skincare notes for February..."></textarea>
+            <button class="btn-save">Save Notes</button>
+        </div>
+
+        <div class="month-section">
+            <div class="month-title">March</div>
+            <textarea class="notes" placeholder="Write your skincare notes for March..."></textarea>
+            <button class="btn-save">Save Notes</button>
+        </div>
+
+        <div class="month-section">
+            <div class="month-title">April</div>
+            <textarea class="notes" placeholder="Write your skincare notes for April..."></textarea>
+            <button class="btn-save">Save Notes</button>
+        </div>
+
+        <div class="month-section">
+            <div class="month-title">May</div>
+            <textarea class="notes" placeholder="Write your skincare notes for May..."></textarea>
+            <button class="btn-save">Save Notes</button>
+        </div>
+
+        <div class="month-section">
+            <div class="month-title">June</div>
+            <textarea class="notes" placeholder="Write your skincare notes for June..."></textarea>
+            <button class="btn-save">Save Notes</button>
+        </div>
+
+        <div class="month-section">
+            <div class="month-title">July</div>
+            <textarea class="notes" placeholder="Write your skincare notes for July..."></textarea>
+            <button class="btn-save">Save Notes</button>
+        </div>
+
+        <div class="month-section">
+            <div class="month-title">August</div>
+            <textarea class="notes" placeholder="Write your skincare notes for August..."></textarea>
+            <button class="btn-save">Save Notes</button>
+        </div>
+
+        <div class="month-section">
+            <div class="month-title">September</div>
+            <textarea class="notes" placeholder="Write your skincare notes for September..."></textarea>
+            <button class="btn-save">Save Notes</button>
+        </div>
+
+        <div class="month-section">
+            <div class="month-title">October</div>
+            <textarea class="notes" placeholder="Write your skincare notes for October..."></textarea>
+            <button class="btn-save">Save Notes</button>
+        </div>
+
+        <div class="month-section">
+            <div class="month-title">November</div>
+            <textarea class="notes" placeholder="Write your skincare notes for November..."></textarea>
+            <button class="btn-save">Save Notes</button>
+        </div>
+
+        <div class="month-section">
+            <div class="month-title">December</div>
+            <textarea class="notes" placeholder="Write your skincare notes for December..."></textarea>
+            <button class="btn-save">Save Notes</button>
+        </div>
+
+    </div>
+
+</body>
+</html>
