@@ -3,12 +3,21 @@ from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.contrib.auth.models import User
 
+from skinCare.models import Profile
+
+
 # Create your views here.
 def homePage(request):
     return render(request, 'skinCare/homePage.html')
 def calendar(request):
     return render(request,'skinCare/calendar.html')
 def days(request):
+    if request.user.is_authenticated:
+        profile = Profile.objects.get(user=request.user)
+        if request.method == "POST":
+            daytimeProducts = request.POST['daytimeProducts']
+
+
     return render(request,'skinCare/days.html')
 def login(request):
     if request.method == "POST":
