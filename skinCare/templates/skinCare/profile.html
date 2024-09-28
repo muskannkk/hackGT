@@ -42,19 +42,25 @@
             color: #666;
             margin-bottom: 20px;
         }
-        .btn-gallery {
-            display: inline-block;
+
+        button {
+            display: block;
+            margin: 20px auto;
             padding: 10px 20px;
-            font-size: 1em;
-            color: black;
-            background-color: #fff9c4;
+            font-size: 1.2em;
+            background-color: #00008B;
+            color: white;
             border: none;
-            border-radius: 5px;
-            text-decoration: none;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
             cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s;
         }
-        .btn-gallery:hover {
+
+        button:hover {
             background-color: #fff9c4;
+            color: #00008B;
+            transform: scale(1.05);
         }
     </style>
 </head>
@@ -64,7 +70,8 @@
         <img src="profile-picture.jpg" alt="Profile Picture" class="profile-picture">
         <div class="username">User</div>
         <div class="email">user@email.com</div>
-        <a href="calendar.html" class="btn-gallery">View My Journal</a>
+        <a href="{% url 'calendar' %}"><button>View My Journal</button></a>
+        <a href="{% url 'homePage' %}"><button>Log Out</button></a>
     </div>
 
 </body>

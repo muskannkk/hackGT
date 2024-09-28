@@ -45,6 +45,27 @@
             font-size: 16px;
             box-sizing: border-box;
         }
+
+        button {
+            display: block;
+            margin: 20px auto;
+            padding: 10px 20px;
+            font-size: 1.2em;
+            background-color: #00008B;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        button:hover {
+            background-color: #fff9c4;
+            color: #00008B;
+            transform: scale(1.05);
+        }
+
     </style>
 </head>
 <body>
@@ -52,8 +73,7 @@
     <h1>Date</h1>
     <form action="/submit-days" method="POST"></form>
     <div class="form-container">
-        <form action="/submit-profile" method="POST"></form>
-        <button type="submit">Profile</button>
+        <a href="{% url 'profile' %}"><button>Profile</button></a>
         <form action="/submit-days" method="POST">
             <div class="input-group">
                 <label for="textbox1">Upload Today's Picture</label>

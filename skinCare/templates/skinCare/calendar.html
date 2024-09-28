@@ -4,38 +4,49 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Yearly Calendar</title>
+    <title>2025 Calendar</title>
     <style>
         body {
             font-family: 'Courier New', sans-serif;
             background-color: #fff9c4;
             padding: 20px;
             color: #333;
+            margin: 0;
+            line-height: 1.6;
         }
 
         h1 {
             text-align: center;
             margin-bottom: 30px;
+            font-size: 3em;
+            color: #00008B;
         }
 
         .year-container {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 20px;
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
         }
 
         .month {
             background-color: #fff;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 12px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
             padding: 20px;
+            transition: transform 0.2s ease-in-out;
+        }
+
+        .month:hover {
+            transform: scale(1.02);
         }
 
         .month h2 {
             text-align: center;
-            margin-bottom: 10px;
+            margin-bottom: 15px;
+            font-size: 1.6em;
+            color: #00008B;
         }
 
         .days-of-week {
@@ -43,13 +54,14 @@
             grid-template-columns: repeat(7, 1fr);
             text-align: center;
             font-weight: bold;
-            margin-bottom: 10px;
+            margin-bottom: 15px;
         }
 
         .days-of-week div {
             padding: 10px;
             background-color: #eee;
             border-radius: 4px;
+            color: #00008B;
         }
 
         .days {
@@ -59,48 +71,78 @@
         }
 
         .days div {
-            padding: 10px;
-            margin: 2px;
+            padding: 12px;
+            margin: 4px;
             background-color: #f9f9f9;
-            border-radius: 4px;
+            border-radius: 6px;
             border: 1px solid #ddd;
+            transition: background-color 0.3s, color 0.3s;
         }
 
         .days div:hover {
-            background-color: #00008B ;
+            background-color: #00008B;
             color: white;
             cursor: pointer;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        button {
+            display: block;
+            margin: 20px auto;
+            padding: 10px 20px;
+            font-size: 1.2em;
+            background-color: #00008B;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        button:hover {
+            background-color: #fff9c4;
+            color: #00008B;
+            transform: scale(1.05);
+        }
+
+        @media (max-width: 1200px) {
+            .year-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
         }
 
         @media (max-width: 768px) {
             .year-container {
                 grid-template-columns: 1fr;
             }
+
+            h1 {
+                font-size: 2.5em;
+            }
+
+            button {
+                font-size: 1.1em;
+            }
         }
     </style>
 </head>
 <body>
-    <h1>Yearly Calendar</h1>
-<form action="/submit-profile" method="POST"></form>
-        <button type="submit">Profile</button>
+    <h1>2025 Calendar</h1>
+<a href="{% url 'profile' %}"><button>Profile</button></a>
+    <a href="{% url 'monthOverview' %}"><button>Monthly Overview</button></a>
     <div class="year-container">
         <div class="month">
             <h2>January</h2>
             <div class="days-of-week">
-                <div>Sun</div>
-                <div>Mon</div>
-                <div>Tue</div>
-                <div>Wed</div>
-                <div>Thu</div>
-                <div>Fri</div>
-                <div>Sat</div>
+                <div>Sun</div><div>Mon</div><div>Tue</div><div>Wed</div><div>Thu</div><div>Fri</div><div>Sat</div>
             </div>
             <div class="days">
-                <div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div><div>7</div>
-                <div>8</div><div>9</div><div>10</div><div>11</div><div>12</div><div>13</div><div>14</div>
-                <div>15</div><div>16</div><div>17</div><div>18</div><div>19</div><div>20</div><div>21</div>
-                <div>22</div><div>23</div><div>24</div><div>25</div><div>26</div><div>27</div><div>28</div>
-                <div>29</div><div>30</div><div>31</div>
+                <div></div><div></div><div></div><div>1</div><div>2</div><div>3</div><div>4</div>
+                <div>5</div><div>6</div><div>7</div><div>8</div><div>9</div><div>10</div><div>11</div>
+                <div>12</div><div>13</div><div>14</div><div>15</div><div>16</div><div>17</div><div>18</div>
+                <div>19</div><div>20</div><div>21</div><div>22</div><div>23</div><div>24</div><div>25</div>
+                <div>26</div><div>27</div><div>28</div><div>29</div><div>30</div><div>31</div>
             </div>
         </div>
 
@@ -116,7 +158,7 @@
                 <div>Sat</div>
             </div>
             <div class="days">
-                <div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div><div>7</div>
+                <div></div><div></div><div></div><div></div><div></div><div></div><div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div><div>7</div>
                 <div>8</div><div>9</div><div>10</div><div>11</div><div>12</div><div>13</div><div>14</div>
                 <div>15</div><div>16</div><div>17</div><div>18</div><div>19</div><div>20</div><div>21</div>
                 <div>22</div><div>23</div><div>24</div><div>25</div><div>26</div><div>27</div><div>28</div>
@@ -135,7 +177,7 @@
                 <div>Sat</div>
             </div>
             <div class="days">
-                <div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div><div>7</div>
+                <div></div><div></div><div></div><div></div><div></div><div></div><div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div><div>7</div>
                 <div>8</div><div>9</div><div>10</div><div>11</div><div>12</div><div>13</div><div>14</div>
                 <div>15</div><div>16</div><div>17</div><div>18</div><div>19</div><div>20</div><div>21</div>
                 <div>22</div><div>23</div><div>24</div><div>25</div><div>26</div><div>27</div><div>28</div>
@@ -149,7 +191,7 @@
                 <div>Sun</div><div>Mon</div><div>Tue</div><div>Wed</div><div>Thu</div><div>Fri</div><div>Sat</div>
             </div>
             <div class="days">
-                <div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div><div>7</div>
+             <div></div><div></div><div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div><div>7</div>
                 <div>8</div><div>9</div><div>10</div><div>11</div><div>12</div><div>13</div><div>14</div>
                 <div>15</div><div>16</div><div>17</div><div>18</div><div>19</div><div>20</div><div>21</div>
                 <div>22</div><div>23</div><div>24</div><div>25</div><div>26</div><div>27</div><div>28</div>
@@ -169,7 +211,7 @@
                 <div>Sat</div>
             </div>
             <div class="days">
-                <div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div><div>7</div>
+                <div></div><div></div><div></div><div></div><div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div><div>7</div>
                 <div>8</div><div>9</div><div>10</div><div>11</div><div>12</div><div>13</div><div>14</div>
                 <div>15</div><div>16</div><div>17</div><div>18</div><div>19</div><div>20</div><div>21</div>
                 <div>22</div><div>23</div><div>24</div><div>25</div><div>26</div><div>27</div><div>28</div>
@@ -209,7 +251,7 @@
                 <div>Sat</div>
             </div>
             <div class="days">
-                <div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div><div>7</div>
+                <div></div><div></div><div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div><div>7</div>
                 <div>8</div><div>9</div><div>10</div><div>11</div><div>12</div><div>13</div><div>14</div>
                 <div>15</div><div>16</div><div>17</div><div>18</div><div>19</div><div>20</div><div>21</div>
                 <div>22</div><div>23</div><div>24</div><div>25</div><div>26</div><div>27</div><div>28</div>
@@ -229,7 +271,7 @@
                 <div>Sat</div>
             </div>
             <div class="days">
-                <div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div><div>7</div>
+                <div></div><div></div><div></div><div></div><div></div><div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div><div>7</div>
                 <div>8</div><div>9</div><div>10</div><div>11</div><div>12</div><div>13</div><div>14</div>
                 <div>15</div><div>16</div><div>17</div><div>18</div><div>19</div><div>20</div><div>21</div>
                 <div>22</div><div>23</div><div>24</div><div>25</div><div>26</div><div>27</div><div>28</div>
@@ -249,7 +291,7 @@
                 <div>Sat</div>
             </div>
             <div class="days">
-                <div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div><div>7</div>
+                <div></div><div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div><div>7</div>
                 <div>8</div><div>9</div><div>10</div><div>11</div><div>12</div><div>13</div><div>14</div>
                 <div>15</div><div>16</div><div>17</div><div>18</div><div>19</div><div>20</div><div>21</div>
                 <div>22</div><div>23</div><div>24</div><div>25</div><div>26</div><div>27</div><div>28</div>
@@ -269,11 +311,11 @@
                 <div>Sat</div>
             </div>
             <div class="days">
-                <div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div><div>7</div>
+                <div></div><div></div><div></div><div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div><div>7</div>
                 <div>8</div><div>9</div><div>10</div><div>11</div><div>12</div><div>13</div><div>14</div>
                 <div>15</div><div>16</div><div>17</div><div>18</div><div>19</div><div>20</div><div>21</div>
                 <div>22</div><div>23</div><div>24</div><div>25</div><div>26</div><div>27</div><div>28</div>
-                <div>29</div><div>30</div>
+                <div>29</div><div>30</div><div>31</div>
             </div>
         </div>
 
@@ -289,11 +331,11 @@
                 <div>Sat</div>
             </div>
             <div class="days">
-                <div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div><div>7</div>
+                <div></div><div></div><div></div><div></div><div></div><div></div><div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div><div>7</div>
                 <div>8</div><div>9</div><div>10</div><div>11</div><div>12</div><div>13</div><div>14</div>
                 <div>15</div><div>16</div><div>17</div><div>18</div><div>19</div><div>20</div><div>21</div>
                 <div>22</div><div>23</div><div>24</div><div>25</div><div>26</div><div>27</div><div>28</div>
-                <div>29</div><div>30</div><div>31</div>
+                <div>29</div><div>30</div>
             </div>
         </div>
 
@@ -309,7 +351,7 @@
                 <div>Sat</div>
             </div>
             <div class="days">
-                <div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div><div>7</div>
+                <div></div><div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div><div>7</div>
                 <div>8</div><div>9</div><div>10</div><div>11</div><div>12</div><div>13</div><div>14</div>
                 <div>15</div><div>16</div><div>17</div><div>18</div><div>19</div><div>20</div><div>21</div>
                 <div>22</div><div>23</div><div>24</div><div>25</div><div>26</div><div>27</div><div>28</div>

@@ -5,63 +5,124 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Skincare Monthly Overview</title>
-    <style>
+   <style>
         body {
             font-family: "Courier New", sans-serif;
             background-color: #fff9c4;
             margin: 0;
             padding: 20px;
+            color: #00008B;
+            line-height: 1.6;
         }
+
         .container {
-            max-width: 800px;
+            max-width: 900px;
             margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
         }
+
         h1 {
             text-align: center;
-            color: #333;
+            font-size: 2.5em;
+            margin-bottom: 30px;
+            color: #00008B;
+            letter-spacing: 1px;
         }
+
         .month-section {
-            background-color: white;
-            padding: 20px;
-            margin: 20px 0;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            background-color: #fff9c4;
+            padding: 30px 20px;
+            margin-bottom: 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
         }
+
+        .month-section:hover {
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+        }
+
         .month-title {
-            font-size: 1.5em;
-            color: #555;
-            margin-bottom: 10px;
+            font-size: 1.8em;
+            margin-bottom: 15px;
+            font-weight: bold;
+            color: #00008B;
         }
+
         .notes {
             width: 95%;
-            height: 100px;
-            padding: 10px;
-            font-size: 1em;
+            height: 120px;
+            padding: 12px;
+            font-size: 1.1em;
             border: 1px solid #ddd;
-            border-radius: 5px;
-            margin-bottom: 10px;
+            border-radius: 8px;
             resize: none;
+            background-color: #f9f9f9;
+            box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.05);
         }
+
         .btn-save {
+            padding: 12px 18px;
+            font-size: 1.1em;
+            background-color: #00008B;
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            display: inline-block;
+            margin-top: 10px;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-save:hover {
+            background-color: gold;
+        }
+        {
+            text-align: right;
+            margin-bottom: 30px;
+        }
+
+         {
             padding: 10px 15px;
             font-size: 1em;
-            color: black;
-            background-color: #fff9c4;
+            background-color: #00008B;
+            color: #fff;
             border: none;
-            border-radius: 5px;
+            border-radius: 8px;
             cursor: pointer;
+            transition: background-color 0.3s ease;
         }
-        .btn-save:hover {
+
+        button {
+            display: block;
+            margin: 20px auto;
+            padding: 10px 20px;
+            font-size: 1.2em;
+            background-color: #00008B;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        button:hover {
             background-color: #fff9c4;
+            color: #00008B;
+            transform: scale(1.05);
         }
+
     </style>
 </head>
 <body>
 
     <div class="container">
         <h1>Skincare Monthly Overview</h1>
-         <form action="/submit-profile" method="POST"></form>
-        <button type="submit">Profile</button>
+        <a href="{% url 'profile' %}"><button>Profile</button></a>
         <div class="month-section">
             <div class="month-title">January</div>
             <textarea class="notes" placeholder="Write your skincare notes for January..."></textarea>
