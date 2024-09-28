@@ -87,7 +87,15 @@
     <div class="login-container">
         <h2>Create An Account</h2>
 
-        <form action="/submit-login" method="POST">
+        {% if messages %}
+            {% for message in messages %}
+                <div class="alert">{{ message }}</div>
+            {% endfor %}
+        {% endif %}
+
+
+        <form action="/signup/" method="POST">
+            {% csrf_token %}
             <div class="input-group">
                 <label for="username">Username</label>
                 <input type="text" id="username" name="username" required>
