@@ -3,7 +3,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib import messages
 from django.contrib.auth.models import User
 
-from skinCare.models import Profile, Day
+from skinCare.models import Profile, Day, MonthOverview
 
 
 # Create your views here.
@@ -100,7 +100,45 @@ def login(request):
     return render(request,'skinCare/login.html')
 
 def monthOverview(request):
-    return render(request, 'skinCare/monthOverview.html')
+    if request.user.is_authenticated:
+        profile = get_object_or_404(Profile, user=request.user)
+        context = {
+            'january_notes': profile.januaryNotes,
+            'february_notes': profile.februaryNotes,
+            'march_notes': profile.marchNotes,
+            'april_notes': profile.aprilNotes,
+            'may_notes': profile.mayNotes,
+            'june_notes': profile.juneNotes,
+            'july_notes': profile.julyNotes,
+            'august_notes': profile.augustNotes,
+            'september_notes': profile.septemberNotes,
+            'october_notes': profile.octoberNotes,
+            'november_notes': profile.novemberNotes,
+            'december_notes': profile.decemberNotes,
+        }
+        if request.method=='POST':
+            month = request.POST.get('month')
+            notes = request.POST.get(f'{month}_notes')
+            setattr(profile, f'{month}Notes', notes)
+            profile.save()
+            context = {
+                'january_notes': profile.januaryNotes,
+                'february_notes': profile.februaryNotes,
+                'march_notes': profile.marchNotes,
+                'april_notes': profile.aprilNotes,
+                'may_notes': profile.mayNotes,
+                'june_notes': profile.juneNotes,
+                'july_notes': profile.julyNotes,
+                'august_notes': profile.augustNotes,
+                'september_notes': profile.septemberNotes,
+                'october_notes': profile.octoberNotes,
+                'november_notes': profile.novemberNotes,
+                'december_notes': profile.decemberNotes,
+            }
+
+        return render(request, 'skinCare/monthOverview.html', context)
+    else:
+        return redirect('login')
 def signup(request):
     if request.method == "POST":
         username = request.POST['username']
