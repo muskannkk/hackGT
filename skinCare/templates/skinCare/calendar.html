@@ -84,7 +84,7 @@
 
         .days button:hover {
             background-color: #00008B ;
-            color: black;
+            color: white;
             cursor: pointer;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
@@ -105,6 +105,52 @@
         }
 
         button:hover {
+            background-color: #fff9c4;
+            color: #00008B;
+            transform: scale(1.05);
+        }
+
+        .button-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1400px;
+            margin: 0 auto 20px auto;
+        }
+
+        .large-button {
+            padding: 10px 20px;
+            font-size: 1.2em;
+            background-color: #00008B;
+            color: white;
+            border: none;
+            align-self: center;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s;
+            font-family: "Courier New", sans-serif;
+        }
+
+        .large-button:hover {
+            background-color: #fff9c4;
+            color: #00008B;
+            transform: scale(1.05);
+        }
+
+        .small-button {
+            padding: 5px 10px;
+            font-size: 0.9em;
+            background-color: #00008B;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-family: "Courier New", sans-serif;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        .small-button:hover {
             background-color: #fff9c4;
             color: #00008B;
             transform: scale(1.05);
@@ -133,8 +179,10 @@
 </head>
 <body>
     <h1>2025 Calendar</h1>
-<a href="{% url 'profile' %}"><button>Profile</button></a>
-    <a href="{% url 'monthOverview' %}"><button>Monthly Overview</button></a>
+    <div class="button-container">
+        <a href="{% url 'monthOverview' %}"><button class="large-button">Monthly Overview</button></a>
+        <a href="{% url 'profile' %}"><button class="small-button">Profile</button></a>
+    </div>
     <div class="year-container">
         <div class="month">
             <h2>January</h2>
