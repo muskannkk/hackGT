@@ -68,8 +68,8 @@
 
     <div class="profile-container">
         <img src="profile-picture.jpg" alt="Profile Picture" class="profile-picture">
-        <div class="username">User</div>
-        <div class="email">user@email.com</div>
+        <div class="username">Username: {{ profile.user.username }}</div>
+        <div class="email">Email: {{ profile.user.email }}</div>
         <a href="{% url 'calendar' %}"><button>View My Journal</button></a>
         <a href="{% url 'homePage' %}"><button>Log Out</button></a>
     </div>

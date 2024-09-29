@@ -76,7 +76,11 @@ def days(request, month, day):
     return redirect('login')
 
 def profile(request):
-    return render(request, 'skinCare/profile.html')
+    if request.user.is_authenticated:
+        profile = get_object_or_404(Profile, user=request.user)
+        return render(request, 'skinCare/profile.html', {'profile': profile})
+    else:
+        return redirect('login')
 def login(request):
     if request.method == "POST":
         username = request.POST['username']
