@@ -13,20 +13,6 @@ class Day(models.Model):
     nightProducts = models.TextField()
     diet = models.TextField()
 
-class MonthOverview(models.Model):
-    janNotes = models.TextField()
-    febNotes = models.TextField()
-    marNotes = models.TextField()
-    aprNotes = models.TextField()
-    mayNotes = models.TextField()
-    junNotes = models.TextField()
-    julNotes = models.TextField()
-    augNotes = models.TextField()
-    sepNotes = models.TextField()
-    octNotes = models.TextField()
-    novNotes = models.TextField()
-    decNotes = models.TextField()
-
 class Profile(models.Model):
    user = models.OneToOneField(User, on_delete=models.CASCADE)
    #profile_picture = models.ImageField(upload_to='profile_pictures', blank=True)

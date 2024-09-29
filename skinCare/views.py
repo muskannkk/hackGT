@@ -3,7 +3,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib import messages
 from django.contrib.auth.models import User
 
-from skinCare.models import Profile, Day, MonthOverview
+from skinCare.models import Profile, Day
 
 
 # Create your views here.
