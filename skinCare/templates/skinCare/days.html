@@ -142,16 +142,26 @@
             <a href="{% url 'profile' %}"><button>Profile</button></a>
         </div>
 
-        <form action="/days/{{ month }}/{{ day }}/" method="POST">
+        <form action="/days/{{ month }}/{{ day }}/" method="POST" enctype="multipart/form-data">
             {% csrf_token %}
 
             <div class="profile-picture-row">
                 <div class="profile-picture-container">
-                    <img src="profile-picture.jpg" alt="Profile Picture" class="profile-picture">
+                    <input type="file" name="front_picture" accept="image/*">
+                    {% if front_picture %}
+                        <img src="{{ front_picture }}" alt="Front Picture" class="profile-picture">
+                    {% else %}
+                        <p>No front picture uploaded yet.</p>
+                    {% endif %}
                 </div>
 
                 <div class="profile-picture-container">
-                    <img src="profile-picture.jpg" alt="Profile Picture" class="profile-picture">
+                    <input type="file" name="side_picture" accept="image/*">
+                    {% if side_picture %}
+                        <img src="{{ side_picture }}" alt="Side Picture" class="profile-picture">
+                    {% else %}
+                        <p>No side picture uploaded yet.</p>
+                    {% endif %}
                 </div>
             </div>
 

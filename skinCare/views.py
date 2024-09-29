@@ -40,6 +40,8 @@ def days(request, month, day):
             nighttimeProducts = request.POST.get('textbox3', '')
             dietToday = request.POST.get('textbox4', '')
             additionalNotes = request.POST.get('textbox5', '')
+            frontPicture = request.FILES.get('front_picture')
+            sidePicture = request.FILES.get('side_picture')
 
             month_numeric = MONTHS.get(month)
             if not month_numeric:
@@ -52,6 +54,12 @@ def days(request, month, day):
             day_instance.dayProducts = daytimeProducts
             day_instance.nightProducts = nighttimeProducts
             day_instance.diet = dietToday
+
+            if frontPicture:
+                day_instance.frontPicture = frontPicture
+            if sidePicture:
+                day_instance.sidePicture = sidePicture
+
             day_instance.save()
 
             # Associate the Day instance with the Profile
@@ -71,6 +79,8 @@ def days(request, month, day):
             'nightProducts': day_info.nightProducts if day_info else '',
             'diet': day_info.diet if day_info else '',
             'notes': day_info.notes if day_info else '',
+            'front_picture': day_info.frontPicture.url if day_info and day_info.frontPicture else None,
+            'side_picture': day_info.sidePicture.url if day_info and day_info.sidePicture else None,
         }
 
         return render(request, 'skinCare/days.html', context)

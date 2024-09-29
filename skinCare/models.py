@@ -7,7 +7,8 @@ from django.dispatch import receiver
 # Create your models here.
 class Day(models.Model):
     date = models.DateField()
-    #dailyPicture = models.ImageField(upload_to='day/')
+    frontPicture = models.ImageField(upload_to='front_pictures', blank=True, null=True)
+    sidePicture = models.ImageField(upload_to='side_pictures', blank=True, null=True)
     notes = models.TextField()
     dayProducts = models.TextField()
     nightProducts = models.TextField()
