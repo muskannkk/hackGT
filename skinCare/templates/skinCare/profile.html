@@ -5,26 +5,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Profile Page</title>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400;700&display=swap');
+
         body {
-            font-family: "Courier New", sans-serif;
-            background-color: #fff9c4;
+            font-family: 'Courier Prime', monospace;
+            background-color: #f4f1de; /* Light beige background */
+            color: #333;
             margin: 0;
             padding: 0;
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
+            background-image: url('https://www.transparenttextures.com/patterns/linen-background.png');
+            background-size: cover;
+            background-position: center;
+            padding: 30px;
         }
 
         .profile-container {
-            background-color: white;
-            border-radius: 20px;
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            background-color: rgba(255, 255, 255, 0.9); /* Slightly transparent white */
+            border: 2px solid #d1bfa7; /* Light brown border */
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
             padding: 40px;
-            max-width: 1000px;
+            max-width: 800px;
             width: 90%;
-            height: 80vh;
+            height: auto;
             display: flex;
+            flex-direction: row;
+            animation: fadeIn 1.5s ease-in-out;
         }
 
         .profile-info {
@@ -36,18 +46,14 @@
             text-align: left;
         }
 
-        .username {
+        .username, .email {
             font-size: 2em;
-            font-weight: normal;
             margin-bottom: 20px;
-            color: #00008B;
-        }
-
-        .email {
-            font-size: 2em;
+            color: #4b4e6d; /* Dark grey-blue color */
             font-weight: normal;
-            margin-bottom: 20px;
-            color: #00008B;
+            border-bottom: 2px dashed #d1bfa7; /* Dashed underline for username and email */
+            padding-bottom: 10px;
+            animation: fadeInText 2.5s ease-in-out;
         }
 
         .button-container {
@@ -57,22 +63,21 @@
         }
 
         button {
-            padding: 15px 30px;
-            font-size: 1.2em;
-            background-color: #00008B;
-            color: white;
-            border: none;
-            border-radius: 8px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+            background-color: #4b4e6d; /* Dark grey-blue button */
+            color: #fff;
+            border: 2px solid #d1bfa7; /* Light brown border */
+            padding: 10px 20px;
+            border-radius: 5px;
             cursor: pointer;
+            font-size: 1.2em;
             transition: background-color 0.3s, transform 0.3s;
             width: 100%;
-            font-family: "Courier New", sans-serif;
+            font-family: 'Courier Prime', monospace;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
         }
 
         button:hover {
-            background-color: #fff9c4;
-            color: #00008B;
+            background-color: #333; /* Dark background on hover */
             transform: scale(1.05);
         }
 
@@ -85,10 +90,11 @@
 
         .profile-picture {
             width: 90%;
-            height: 90%;
+            height: auto;
             object-fit: cover;
             border-radius: 10px;
-            border: 3px solid #00008B;
+            border: 3px solid #4b4e6d; /* Dark grey-blue border */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
 
         @media (max-width: 768px) {
@@ -104,11 +110,11 @@
             }
 
             .username {
-                font-size: 2em;
+                font-size: 1.5em;
             }
 
             .email {
-                font-size: 1.2em;
+                font-size: 1.5em;
             }
 
             button {
@@ -116,6 +122,15 @@
             }
         }
 
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes fadeInText {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
     </style>
 </head>
 <body>
