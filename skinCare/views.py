@@ -2,7 +2,6 @@ from django.contrib.auth import authenticate, login as auth_login
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib import messages
 from django.contrib.auth.models import User
-
 from skinCare.models import Profile, Day
 
 
@@ -152,3 +151,12 @@ def signup(request):
         except Exception as e:
             messages.error(request, str(e))
     return render(request,'skinCare/signup.html')
+
+def profilePic(request):
+    if request.method == 'POST':
+        profile = get_object_or_404(Profile, user=request.user)
+        if 'profile_picture' in request.FILES:
+            profile.profile_picture = request.FILES['profile_picture']
+            profile.save()
+            return redirect('profile')
+    return render(request, 'upload.html')

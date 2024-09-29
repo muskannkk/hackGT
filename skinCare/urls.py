@@ -1,10 +1,9 @@
-from django.urls import path, include
+from django.urls import path
 from django.conf import settings
 from django.conf.urls.static import static
 from . import views
 
 urlpatterns = [
-    path('', include('skinCare.urls')),
     path('homePage/', views.homePage, name='homePage'),
     path('calendar/', views.calendar, name='calendar'),
     path('days/<str:month>/<int:day>/', views.days, name='days'),
@@ -12,6 +11,7 @@ urlpatterns = [
     path('monthOverview/', views.monthOverview, name='monthOverview'),
     path('signup/', views.signup, name='signup'),
     path('profile/', views.profile, name='profile'),
+    path('profilePic/', views.profilePic, name='profilePic'),
 ]
 
 if settings.DEBUG:
