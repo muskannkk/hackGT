@@ -68,6 +68,10 @@ def days(request, month, day):
             'month': month,
             'day': day,
             'day_info': day_info,
+            'dayProducts': day_info.dayProducts if day_info else '',
+            'nightProducts': day_info.nightProducts if day_info else '',
+            'diet': day_info.diet if day_info else '',
+            'notes': day_info.notes if day_info else '',
         }
 
         return render(request, 'skinCare/days.html', context)
