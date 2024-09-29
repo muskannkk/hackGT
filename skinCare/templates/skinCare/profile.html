@@ -134,7 +134,6 @@
     </style>
 </head>
 <body>
-
     <div class="profile-container">
         <div class="profile-info">
             <div class="username">Username: {{ profile.user.username }}</div>
@@ -146,7 +145,16 @@
         </div>
 
         <div class="profile-picture-container">
-            <img src="profile-picture.jpg" alt="Profile Picture" class="profile-picture">
+            <form action="{% url 'profilePic' %}" method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                <input type="file" name="profile_picture">
+                <button type="submit">Upload</button>
+            </form>
+            {% if profile.profile_picture %}
+                <img src="{{ profile.profile_picture.url }}" alt="Profile Picture" class="profile-picture" />
+            {% else %}
+                <p>No profile picture uploaded.</p>
+            {% endif %}
         </div>
     </div>
 

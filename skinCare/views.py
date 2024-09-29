@@ -2,7 +2,6 @@ from django.contrib.auth import authenticate, login as auth_login
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib import messages
 from django.contrib.auth.models import User
-
 from skinCare.models import Profile, Day
 
 
@@ -41,6 +40,8 @@ def days(request, month, day):
             nighttimeProducts = request.POST.get('textbox3', '')
             dietToday = request.POST.get('textbox4', '')
             additionalNotes = request.POST.get('textbox5', '')
+            frontPicture = request.FILES.get('front_picture')
+            sidePicture = request.FILES.get('side_picture')
 
             month_numeric = MONTHS.get(month)
             if not month_numeric:
@@ -53,6 +54,12 @@ def days(request, month, day):
             day_instance.dayProducts = daytimeProducts
             day_instance.nightProducts = nighttimeProducts
             day_instance.diet = dietToday
+
+            if frontPicture:
+                day_instance.frontPicture = frontPicture
+            if sidePicture:
+                day_instance.sidePicture = sidePicture
+
             day_instance.save()
 
             # Associate the Day instance with the Profile
@@ -72,6 +79,8 @@ def days(request, month, day):
             'nightProducts': day_info.nightProducts if day_info else '',
             'diet': day_info.diet if day_info else '',
             'notes': day_info.notes if day_info else '',
+            'front_picture': day_info.frontPicture.url if day_info and day_info.frontPicture else None,
+            'side_picture': day_info.sidePicture.url if day_info and day_info.sidePicture else None,
         }
 
         return render(request, 'skinCare/days.html', context)
@@ -152,3 +161,12 @@ def signup(request):
         except Exception as e:
             messages.error(request, str(e))
     return render(request,'skinCare/signup.html')
+
+def profilePic(request):
+    if request.method == 'POST':
+        profile = get_object_or_404(Profile, user=request.user)
+        if 'profile_picture' in request.FILES:
+            profile.profile_picture = request.FILES['profile_picture']
+            profile.save()
+            return redirect('profile')
+    return render(request, 'upload.html')

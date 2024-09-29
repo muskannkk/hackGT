@@ -7,7 +7,8 @@ from django.dispatch import receiver
 # Create your models here.
 class Day(models.Model):
     date = models.DateField()
-    #dailyPicture = models.ImageField(upload_to='day/')
+    frontPicture = models.ImageField(upload_to='front_pictures', blank=True, null=True)
+    sidePicture = models.ImageField(upload_to='side_pictures', blank=True, null=True)
     notes = models.TextField()
     dayProducts = models.TextField()
     nightProducts = models.TextField()
@@ -15,7 +16,7 @@ class Day(models.Model):
 
 class Profile(models.Model):
    user = models.OneToOneField(User, on_delete=models.CASCADE)
-   #profile_picture = models.ImageField(upload_to='profile_pictures', blank=True)
+   profile_picture = models.ImageField(upload_to='profile_pictures', blank=True, null=True)
    days = models.ManyToManyField(Day, blank=True)
    januaryNotes = models.TextField(default="")
    februaryNotes = models.TextField(default="")
