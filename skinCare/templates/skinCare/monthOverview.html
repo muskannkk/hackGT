@@ -6,34 +6,53 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Skincare Monthly Overview</title>
    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400;700&display=swap');
+
         body {
-            font-family: "Courier New", sans-serif;
-            background-color: #fff9c4;
+            font-family: 'Courier Prime', monospace;
+            background-color: #f4f1de;
+            color: #333;
             margin: 0;
             padding: 20px;
-            color: #00008B;
             line-height: 1.6;
+            background-image: url('https://www.transparenttextures.com/patterns/linen-background.png');
+            background-size: cover;
+            background-position: center;
         }
 
         .container {
             max-width: 900px;
             margin: 0 auto;
             padding: 20px;
-            background-color: #fff;
-            border-radius: 12px;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
         }
 
         h1 {
             text-align: center;
-            font-size: 2.5em;
-            margin-bottom: 30px;
-            color: #00008B;
+            animation: typing 3.5s steps(40, end), blink 0.75s step-end infinite alternate;
+            font-size: 46px;
+            margin-bottom: 1px;
+            color: #4b4e6d;
             letter-spacing: 1px;
+            border-bottom: 2px dashed #d1bfa7;
+            padding-bottom: 10px;
+            white-space: nowrap;
+            overflow: hidden;
+        }
+        @keyframes typing {
+            from { width: 0; }
+            to { width: 100%; }
+        }
+
+        @keyframes blink {
+            from { border-color: transparent; }
+            to { border-color: black; }
         }
 
         .month-section {
-            background-color: #fff9c4;
+            background-color: #f4f1de;
             padding: 30px 20px;
             margin-bottom: 20px;
             border-radius: 12px;
@@ -49,7 +68,7 @@
             font-size: 1.8em;
             margin-bottom: 15px;
             font-weight: bold;
-            color: #00008B;
+            color: #4b4e6d;
         }
 
         .notes {
@@ -67,33 +86,20 @@
         .btn-save {
             padding: 12px 18px;
             font-size: 1.1em;
-            background-color: #00008B;
+            background-color: #4b4e6d;
             color: #fff;
-            border: none;
+            border: 2px solid #d1bfa7;
             border-radius: 8px;
             cursor: pointer;
             display: inline-block;
             margin-top: 10px;
             transition: background-color 0.3s ease;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
         }
 
         .btn-save:hover {
-            background-color: gold;
-        }
-        {
-            text-align: right;
-            margin-bottom: 30px;
-        }
-
-         {
-            padding: 10px 15px;
-            font-size: 1em;
-            background-color: #00008B;
-            color: #fff;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
+            background-color: #fff9c4;
+            color: #4b4e6d;
         }
 
         button {
@@ -101,23 +107,36 @@
             margin: 20px auto;
             padding: 10px 20px;
             font-size: 1.2em;
-            background-color: #00008B;
+            background-color: #4b4e6d;
+            font-family: 'Courier Prime', monospace;
             color: white;
             border: none;
             border-radius: 8px;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
             cursor: pointer;
             transition: background-color 0.3s, transform 0.3s;
-            font-family: "Courier New", sans-serif;
-
         }
 
         button:hover {
-            background-color: #fff9c4;
-            color: #00008B;
+            background-color: #f4f1de;
+            color: #4b4e6d;
             transform: scale(1.05);
         }
 
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+
+            .month-title {
+                font-size: 1.5em;
+            }
+
+            .notes {
+                height: 100px;
+                font-size: 1em;
+            }
+        }
     </style>
 </head>
 <body>
