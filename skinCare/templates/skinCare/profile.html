@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -16,37 +15,49 @@
             align-items: center;
             height: 100vh;
         }
+
         .profile-container {
             background-color: white;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            padding: 20px;
-            text-align: center;
-            max-width: 1400px;
+            border-radius: 20px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            padding: 40px;
+            max-width: 1000px;
+            width: 90%;
             height: 80vh;
-            width: 100%;
+            display: flex;
         }
-        .profile-picture {
-            width: 100px;
-            height: 100px;
-            border-radius: 50%;
-            object-fit: cover;
-            margin-bottom: 20px;
+
+        .profile-info {
+            flex: 1;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            text-align: left;
         }
+
         .username {
-            font-size: 1.5em;
-            margin-bottom: 10px;
-        }
-        .email {
-            font-size: 1em;
-            color: #666;
+            font-size: 2em;
+            font-weight: normal;
             margin-bottom: 20px;
+            color: #00008B;
+        }
+
+        .email {
+            font-size: 2em;
+            font-weight: normal;
+            margin-bottom: 20px;
+            color: #00008B;
+        }
+
+        .button-container {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
         }
 
         button {
-            display: block;
-            margin: 20px auto;
-            padding: 10px 20px;
+            padding: 15px 30px;
             font-size: 1.2em;
             background-color: #00008B;
             color: white;
@@ -55,6 +66,8 @@
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
             cursor: pointer;
             transition: background-color 0.3s, transform 0.3s;
+            width: 100%;
+            font-family: "Courier New", sans-serif;
         }
 
         button:hover {
@@ -62,16 +75,64 @@
             color: #00008B;
             transform: scale(1.05);
         }
+
+        .profile-picture-container {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .profile-picture {
+            width: 90%;
+            height: 90%;
+            object-fit: cover;
+            border-radius: 10px;
+            border: 3px solid #00008B;
+        }
+
+        @media (max-width: 768px) {
+            .profile-container {
+                flex-direction: column;
+                padding: 20px;
+                height: auto;
+            }
+
+            .profile-picture {
+                width: 100%;
+                height: auto;
+            }
+
+            .username {
+                font-size: 2em;
+            }
+
+            .email {
+                font-size: 1.2em;
+            }
+
+            button {
+                width: 100%;
+            }
+        }
+
     </style>
 </head>
 <body>
 
     <div class="profile-container">
-        <img src="profile-picture.jpg" alt="Profile Picture" class="profile-picture">
-        <div class="username">Username: {{ profile.user.username }}</div>
-        <div class="email">Email: {{ profile.user.email }}</div>
-        <a href="{% url 'calendar' %}"><button>View My Journal</button></a>
-        <a href="{% url 'homePage' %}"><button>Log Out</button></a>
+        <div class="profile-info">
+            <div class="username">Username: {{ profile.user.username }}</div>
+            <div class="email">Email: {{ profile.user.email }}</div>
+            <div class="button-container">
+                <a href="{% url 'calendar' %}"><button>View My Journal</button></a>
+                <a href="{% url 'homePage' %}"><button>Log Out</button></a>
+            </div>
+        </div>
+
+        <div class="profile-picture-container">
+            <img src="profile-picture.jpg" alt="Profile Picture" class="profile-picture">
+        </div>
     </div>
 
 </body>

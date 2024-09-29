@@ -15,6 +15,7 @@
         h1 {
             text-align: center;
             margin-bottom: 15px;
+            color: #00008B;
         }
 
         .form-container {
@@ -58,6 +59,7 @@
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
             cursor: pointer;
             transition: background-color 0.3s, transform 0.3s;
+            font-family: "Courier New", sans-serif;
         }
 
         button:hover {
@@ -71,9 +73,10 @@
 <body>
 
     <h1>{{ month }} {{ day }}, 2025</h1>
-    <form action="/submit-days" method="POST"></form>
+    <form action="/days" method="POST"></form>
     <div class="form-container">
         <a href="{% url 'profile' %}"><button>Profile</button></a>
+        <a href="{% url 'calendar' %}"><button>Back To Calendar</button></a>
         <form action="/submit-days" method="POST">
             <div class="input-group">
                 <label for="textbox1">Upload Today's Picture</label>
@@ -100,6 +103,7 @@
                 <input type="text" id="textbox5" name="textbox5">
             </div>
             <button type="submit">Save</button>
+
         </form>
     </div>
 
