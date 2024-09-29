@@ -125,79 +125,127 @@
     <div class="container">
         <h1>Skincare Monthly Overview</h1>
         <a href="{% url 'profile' %}"><button>Profile</button></a>
-        <div class="month-section">
-            <div class="month-title">January</div>
-            <textarea class="notes" placeholder="Write your skincare notes for January..."></textarea>
-            <button class="btn-save">Save Notes</button>
-        </div>
+        <form method="POST" action={% url 'monthOverview' %}>
+            {% csrf_token %}
+            <div class="month-section">
+                <div class="month-title">January</div>
+                <textarea name="january_notes" class="notes" placeholder="Write your skincare notes for January...">{{ january_notes }}</textarea>
+                <input type="hidden" name="month" value="january">
+                <button type="submit" class="btn-save">Save Notes</button>
+            </div>
+        </form>
 
-        <div class="month-section">
-            <div class="month-title">February</div>
-            <textarea class="notes" placeholder="Write your skincare notes for February..."></textarea>
-            <button class="btn-save">Save Notes</button>
-        </div>
+        <form method="POST" action={% url 'monthOverview' %}>
+            {% csrf_token %}
+            <div class="month-section">
+                <div class="month-title">February</div>
+                <textarea name="february_notes" class="notes" placeholder="Write your skincare notes for February...">{{ february_notes }}</textarea>
+                <input type="hidden" name="month" value="february">
+                <button type="submit" class="btn-save">Save Notes</button>
+            </div>
+        </form>
 
-        <div class="month-section">
-            <div class="month-title">March</div>
-            <textarea class="notes" placeholder="Write your skincare notes for March..."></textarea>
-            <button class="btn-save">Save Notes</button>
-        </div>
+        <form method="POST" action={% url 'monthOverview' %}>
+            {% csrf_token %}
+            <div class="month-section">
+                <div class="month-title">March</div>
+                <textarea name="march_notes" class="notes" placeholder="Write your skincare notes for March...">{{ march_notes }}</textarea>
+                <input type="hidden" name="month" value="march">
+                <button type="submit" class="btn-save">Save Notes</button>
+            </div>
+        </form>
 
-        <div class="month-section">
-            <div class="month-title">April</div>
-            <textarea class="notes" placeholder="Write your skincare notes for April..."></textarea>
-            <button class="btn-save">Save Notes</button>
-        </div>
+        <form method="POST" action={% url 'monthOverview' %}>
+            {% csrf_token %}
+            <div class="month-section">
+                <div class="month-title">April</div>
+                <textarea  name="april_notes" class="notes" placeholder="Write your skincare notes for April...">{{ april_notes }}</textarea>
+                <input type="hidden" name="month" value="april">
+                <button type="submit" class="btn-save">Save Notes</button>
+            </div>
+        </form>
 
-        <div class="month-section">
-            <div class="month-title">May</div>
-            <textarea class="notes" placeholder="Write your skincare notes for May..."></textarea>
-            <button class="btn-save">Save Notes</button>
-        </div>
+        <form method="POST" action={% url 'monthOverview' %}>
+            {% csrf_token %}
+            <div class="month-section">
+                <div class="month-title">May</div>
+                <textarea name="may_notes" class="notes" placeholder="Write your skincare notes for May...">{{ may_notes }}</textarea>
+                <input type="hidden" name="month" value="may">
+                <button type="submit" class="btn-save">Save Notes</button>
+            </div>
+        </form>
 
-        <div class="month-section">
-            <div class="month-title">June</div>
-            <textarea class="notes" placeholder="Write your skincare notes for June..."></textarea>
-            <button class="btn-save">Save Notes</button>
-        </div>
+        <form method="POST" action={% url 'monthOverview' %}>
+            {% csrf_token %}
+            <div class="month-section">
+                <div class="month-title">June</div>
+                <textarea name="june_notes" class="notes" placeholder="Write your skincare notes for June...">{{ june_notes }}</textarea>
+                <input type="hidden" name="month" value="june">
+                <button type="submit" class="btn-save">Save Notes</button>
+            </div>
+        </form>
 
-        <div class="month-section">
-            <div class="month-title">July</div>
-            <textarea class="notes" placeholder="Write your skincare notes for July..."></textarea>
-            <button class="btn-save">Save Notes</button>
-        </div>
+        <form method="POST" action={% url 'monthOverview' %}>
+            {% csrf_token %}
+            <div class="month-section">
+                <div class="month-title">July</div>
+                <textarea name="july_notes" class="notes" placeholder="Write your skincare notes for July...">{{ july_notes }}</textarea>
+                <input type="hidden" name="month" value="july">
+                <button type="submit" class="btn-save">Save Notes</button>
+            </div>
+        </form>
 
-        <div class="month-section">
-            <div class="month-title">August</div>
-            <textarea class="notes" placeholder="Write your skincare notes for August..."></textarea>
-            <button class="btn-save">Save Notes</button>
-        </div>
+        <form method="POST" action={% url 'monthOverview' %}>
+            {% csrf_token %}
+            <div class="month-section">
+                <div class="month-title">August</div>
+                <textarea name="august_notes" class="notes" placeholder="Write your skincare notes for August...">{{ august_notes }}</textarea>
+                <input type="hidden" name="month" value="august">
+                <button type="submit" class="btn-save">Save Notes</button>
+            </div>
+        </form>
 
-        <div class="month-section">
-            <div class="month-title">September</div>
-            <textarea class="notes" placeholder="Write your skincare notes for September..."></textarea>
-            <button class="btn-save">Save Notes</button>
-        </div>
+        <form method="POST" action={% url 'monthOverview' %}>
+            {% csrf_token %}
+            <div class="month-section">
+                <div class="month-title">September</div>
+                <textarea name="september_notes" class="notes" placeholder="Write your skincare notes for September...">{{ september_notes }}</textarea>
+                <input type="hidden" name="month" value="september">
+                <button type="submit" class="btn-save">Save Notes</button>
+            </div>
+        </form>
 
-        <div class="month-section">
-            <div class="month-title">October</div>
-            <textarea class="notes" placeholder="Write your skincare notes for October..."></textarea>
-            <button class="btn-save">Save Notes</button>
-        </div>
+        <form method="POST" action={% url 'monthOverview' %}>
+            {% csrf_token %}
+            <div class="month-section">
+                <div class="month-title">October</div>
+                <textarea name="october_notes" class="notes" placeholder="Write your skincare notes for October...">{{ october_notes }}</textarea>
+                <input type="hidden" name="month" value="october">
+                <button type="submit" class="btn-save">Save Notes</button>
+            </div>
+        </form>
 
-        <div class="month-section">
-            <div class="month-title">November</div>
-            <textarea class="notes" placeholder="Write your skincare notes for November..."></textarea>
-            <button class="btn-save">Save Notes</button>
-        </div>
+        <form method="POST" action={% url 'monthOverview' %}>
+            {% csrf_token %}
+            <div class="month-section">
+                <div class="month-title">November</div>
+                <textarea name="november_notes" class="notes" placeholder="Write your skincare notes for November...">{{ november_notes }}</textarea>
+                <input type="hidden" name="month" value="november">
+                <button type="submit" class="btn-save">Save Notes</button>
+            </div>
+        </form>
 
-        <div class="month-section">
-            <div class="month-title">December</div>
-            <textarea class="notes" placeholder="Write your skincare notes for December..."></textarea>
-            <button class="btn-save">Save Notes</button>
-        </div>
+        <form method="POST" action={% url 'monthOverview' %}>
+            {% csrf_token %}
+            <div class="month-section">
+                <div class="month-title">December</div>
+                <textarea name="december_notes" class="notes" placeholder="Write your skincare notes for December...">{{ december_notes }}</textarea>
+                <input type="hidden" name="month" value="december">
+                <button type="submit" class="btn-save">Save Notes</button>
+            </div>
+        </form>
 
-    </div>
+        </div>
 
 </body>
 </html>
