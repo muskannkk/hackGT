@@ -7,83 +7,109 @@
     <title>User Login</title>
     <style>
 
+        @import url('https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400;700&display=swap');
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
-
         body {
-            font-family: 'Courier New', sans-serif;
-            background: linear-gradient(135deg, #fff9c4 30%, #fff);
+            font-family: 'Courier Prime', monospace;
+            background-color: #f4f1de;
+            background-image: url('https://www.transparenttextures.com/patterns/linen-background.png');
             display: flex;
             justify-content: center;
             align-items: center;
             min-height: 100vh;
+            padding: 20px;
             margin: 0;
         }
 
-
+        /* Vintage style for login container */
         .login-container {
-            background-color: #fff;
+            background-color: rgba(255, 255, 255, 0.9);
+            border: 2px solid #d1bfa7;
             border-radius: 15px;
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
             padding: 40px;
             max-width: 400px;
             width: 100%;
             transition: transform 0.3s ease;
+            animation: fadeIn 1.5s ease-in-out;
         }
 
         .login-container:hover {
-            transform: scale(1.02);
+            transform: scale(1.03);
         }
 
+        /* Headings in a typewriter style */
         h2 {
             text-align: center;
-            color: #00008B;
+            color: #4b4e6d;
             font-size: 32px;
             margin-bottom: 20px;
+            border-bottom: 2px dashed #d1bfa7;
+            padding-bottom: 10px;
+            letter-spacing: 1px;
+            animation: typing 3.5s steps(40, end), blink 0.75s step-end infinite alternate;
+            white-space: nowrap;
+            overflow: hidden;
+            border-right: 4px solid;
         }
 
+        @keyframes typing {
+            from { width: 0; }
+            to { width: 100%; }
+        }
+
+        @keyframes blink {
+            from { border-color: transparent; }
+            to { border-color: black; }
+        }
 
         .input-group {
-            margin-bottom: 25px;
+            margin-bottom: 20px;
         }
 
         label {
             display: block;
-            font-size: 14px;
-            color: #00008B;
+            font-size: 16px;
+            color: #4b4e6d;
             margin-bottom: 8px;
         }
 
+        /* Input fields styled like journal entry forms */
         input[type="text"], input[type="email"], input[type="password"] {
             width: 100%;
             padding: 12px 15px;
             border-radius: 8px;
-            border: 1px solid #ddd;
+            border: 2px solid #d1bfa7;
             font-size: 16px;
-            transition: border-color 0.3s ease;
             background-color: #f9f9f9;
+            font-family: 'Courier Prime', monospace;
+            transition: border-color 0.3s ease;
         }
 
         input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focus {
             outline: none;
-            border-color: #00008B;
+            border-color: #4b4e6d;
         }
 
+        /* Button styled to look like vintage paper buttons */
         button {
             width: 100%;
             padding: 14px;
             background-color: #fff9c4;
-            color: #00008B;
-            border: none;
+            color: #4b4e6d;
+            border: 2px solid #d1bfa7;
             border-radius: 8px;
             font-size: 18px;
             cursor: pointer;
             transition: background-color 0.3s ease, transform 0.3s ease;
-            font-family: "Courier New", sans-serif;
+            font-family: 'Courier Prime', monospace;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
 
         button:hover {
@@ -91,19 +117,6 @@
             transform: translateY(-3px);
         }
 
-        .forgot-password {
-            display: block;
-            text-align: center;
-            margin-top: 20px;
-            font-size: 14px;
-            color: #00008B;
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        .forgot-password:hover {
-            color: #333;
-        }
 
         @media (max-width: 768px) {
             .login-container {
@@ -118,6 +131,13 @@
                 font-size: 16px;
             }
         }
+
+        /* Fade-in animation */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
     </style>
 </head>
 <body>
@@ -143,7 +163,6 @@
             </div>
 
             <button type="submit">Log In</button>
-
         </form>
     </div>
 

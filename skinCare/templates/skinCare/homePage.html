@@ -4,12 +4,12 @@
 <head>
    <meta charset="UTF-8">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>Welcome To Skin Write</title>
+   <title>Skin Write Journal</title>
    <style>
        @import url('https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400;700&display=swap');
        body {
            font-family: 'Courier Prime', monospace;
-           background-color: #fff9c4;
+           background-color: #f4f1de;
            color: #333;
            margin: 0;
            padding: 0;
@@ -18,80 +18,92 @@
            align-items: center;
            justify-content: center;
            height: 100vh;
-           background-image: url('https://www.freepik.com/premium-ai-image/spa-scene-with-candles-towels-flowers_46167159.htm');
+           background-image: url('https://www.transparenttextures.com/patterns/linen-background.png');
            background-size: cover;
            background-position: center;
+           padding: 30px;
        }
 
+       /* Styling for a vintage journal entry feel */
        .box {
-           background-color: rgba(255, 255, 255, 0.8);
-           border-radius: 10px;
-           box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-           padding: 40px;
+           background-color: rgba(255, 255, 255, 0.9);
+           border: 2px solid #d1bfa7;
+           border-radius: 15px;
+           box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+           padding: 30px;
            margin: 20px;
-           max-width: 400px;
+           max-width: 450px;
            text-align: center;
-           animation: fadeIn 1s ease-in-out;
+           animation: fadeIn 1.5s ease-in-out;
            position: relative;
-       }
-
-       .box:before {
-           content: '';
-           position: absolute;
-           top: -40px;
-           left: 50%;
-           transform: translateX(-50%);
-           width: 100px;
-           height: 100px;
-           background-image: url('https://example.com/cartoon-icon.png'); /* Replace with your cartoon icon */
-           background-size: contain;
-           background-repeat: no-repeat;
-           animation: float 3s ease-in-out infinite;
+           font-family: 'Courier Prime', monospace;
+           box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
        }
 
        h1 {
-           color: #00008B;
-           font-size: 36px;
+           color: #4b4e6d;
+           font-size: 32px;
            margin-bottom: 20px;
-           animation: slideInDown 1.5s ease-out;
+           border-bottom: 2px dashed #d1bfa7;
+           padding-bottom: 10px;
+           letter-spacing: 2px;
+           animation: typing 3.5s steps(40, end), blink 0.75s step-end infinite alternate;
+           white-space: nowrap;
+           overflow: hidden;
+           border-right: 4px solid;
+       }
+
+       @keyframes typing {
+           from { width: 0 }
+           to { width: 100% }
+       }
+
+       @keyframes blink {
+           from { border-color: transparent }
+           to { border-color: black }
        }
 
        p {
-           color: #555;
+           color: #333;
            font-size: 18px;
-           margin-bottom: 30px;
-           animation: fadeIn 2s ease-in-out;
+           margin-bottom: 20px;
+           line-height: 1.5;
+           animation: fadeInText 2.5s ease-in-out;
+       }
+
+       @keyframes fadeInText {
+           from { opacity: 0; }
+           to { opacity: 1; }
        }
 
        button {
-           background-color: #00008B;
+           background-color: #4b4e6d;
            color: #fff;
-           border: none;
-           padding: 10px 17px;
-           border-radius: 50px;
+           border: 2px solid #d1bfa7;
+           padding: 10px 20px;
+           border-radius: 5px;
            cursor: pointer;
            font-size: 16px;
-           transition: transform 0.3s, background-color 0.3s;
-           box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-           animation: popIn 1s ease;
+           transition: background-color 0.3s, transform 0.3s;
+           margin-top: 20px;
+           font-family: 'Courier Prime', monospace;
+           box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
            margin-bottom: 10px;
-           font-family: "Courier New", sans-serif;
        }
 
        button:hover {
-           background-color: #333399;
-           transform: scale(1.1);
+           background-color: #333;
+           transform: scale(1.05);
        }
 
        a {
            text-decoration: none;
+           color: inherit;
            display: inline-block;
-           margin-top: 20px;
-           animation: fadeIn 1.5s ease-in-out;
        }
 
        .box br {
-           line-height: 2.5;
+           line-height: 2;
        }
 
        @media (max-width: 768px) {
@@ -101,38 +113,23 @@
            }
        }
 
-       /* Animations */
        @keyframes fadeIn {
            from { opacity: 0; }
            to { opacity: 1; }
-       }
-
-       @keyframes slideInDown {
-           from { transform: translateY(-50px); opacity: 0; }
-           to { transform: translateY(0); opacity: 1; }
-       }
-
-       @keyframes popIn {
-           from { transform: scale(0.9); opacity: 0; }
-           to { transform: scale(1); opacity: 1; }
-       }
-
-       @keyframes float {
-           0%, 100% { transform: translateY(0); }
-           50% { transform: translateY(-10px); }
        }
    </style>
 </head>
 <body>
 
+
    <div class="box">
        <h1>Welcome To Skin Write</h1>
-       <p>Begin Your Skin Care Journey Today!</p>
+       <p>Start your personal skincare journey with our virtual journal. Track your daily progress and discover personalized insights.</p>
    </div>
 
    <div class="box">
-       <strong>LOGIN</strong>
-       <br>In order to access our website functions, you must log in or create an account.</br>
+       <strong style="font-size: 18px; color: #4b4e6d;">LOGIN</strong>
+       <br>To access the journal features, please log in or create a new account:</br>
        <a href="{% url 'login' %}"><button>Log In</button></a>
        <br>Don't have an account? You can create one below:</br>
        <a href="{% url 'signup' %}"><button>Create Account</button></a>
