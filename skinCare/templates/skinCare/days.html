@@ -147,21 +147,27 @@
 
             <div class="profile-picture-row">
                 <div class="profile-picture-container">
-                    <input type="file" name="front_picture" accept="image/*">
-                    {% if front_picture %}
-                        <img src="{{ front_picture }}" alt="Front Picture" class="profile-picture">
-                    {% else %}
-                        <p>No front picture uploaded yet.</p>
-                    {% endif %}
+                    <input type="file" name="front_picture" accept="image/*" id="front_picture" style="display: none;" onchange="previewImage(event, 'frontPreview')">
+                    <button type="button" onclick="document.getElementById('front_picture').click()">Upload Front Picture</button>
+                    <div id="frontPreview">
+                        {% if front_picture %}
+                            <img src="{{ front_picture }}" alt="Front Picture" class="profile-picture">
+                        {% else %}
+                            <p>No front picture uploaded yet.</p>
+                        {% endif %}
+                    </div>
                 </div>
 
                 <div class="profile-picture-container">
-                    <input type="file" name="side_picture" accept="image/*">
-                    {% if side_picture %}
-                        <img src="{{ side_picture }}" alt="Side Picture" class="profile-picture">
-                    {% else %}
-                        <p>No side picture uploaded yet.</p>
-                    {% endif %}
+                    <input type="file" name="side_picture" accept="image/*" id="side_picture" style="display: none;" onchange="previewImage(event, 'sidePreview')">
+                    <button type="button" onclick="document.getElementById('side_picture').click()">Upload Side Picture</button>
+                    <div id="sidePreview">
+                        {% if side_picture %}
+                            <img src="{{ side_picture }}" alt="Side Picture" class="profile-picture">
+                        {% else %}
+                            <p>No side picture uploaded yet.</p>
+                        {% endif %}
+                    </div>
                 </div>
             </div>
 
@@ -189,6 +195,17 @@
             </div>
         </form>
     </div>
-
+    <script>
+        function previewImage(event, previewId) {
+            const file = event.target.files[0];
+            const reader = new FileReader();
+            reader.onload = function() {
+                document.getElementById(previewId).innerHTML = `<img src="${reader.result}" alt="Preview" class="profile-picture">`;
+            }
+            if (file) {
+                reader.readAsDataURL(file);
+            }
+        }
+    </script>
 </body>
 </html>
