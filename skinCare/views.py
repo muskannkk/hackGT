@@ -169,4 +169,4 @@ def profilePic(request):
             profile.profile_picture = request.FILES['profile_picture']
             profile.save()
             return redirect('profile')
-    return render(request, 'upload.html')
+    return render(request, 'skinCare/profile.html')

@@ -152,8 +152,8 @@
         <div class="profile-picture-container">
             <form action="{% url 'profilePic' %}" method="POST" enctype="multipart/form-data">
                 {% csrf_token %}
-                <input type="file" name="profile_picture">
-                <button type="submit">Upload</button>
+                <input type="file" name="profile_picture" id="profilePictureInput" style="display: none;" onchange="this.form.submit();">
+                <button type="button" onclick="document.getElementById('profilePictureInput').click();">Upload Profile Picture</button>
             </form>
             {% if profile.profile_picture %}
                 <img src="{{ profile.profile_picture.url }}" alt="Profile Picture" class="profile-picture" />
