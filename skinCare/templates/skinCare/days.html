@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>month Overview</title>
+    <title>Month Overview</title>
     <style>
         body {
             font-family: 'Courier New', sans-serif;
@@ -48,10 +48,9 @@
         }
 
         button {
-            display: block;
-            margin: 20px auto;
-            padding: 10px 20px;
-            font-size: 1.2em;
+            display: inline-block;
+            padding: 5px 10px;
+            font-size: 0.9em;
             background-color: #00008B;
             color: white;
             border: none;
@@ -60,6 +59,7 @@
             cursor: pointer;
             transition: background-color 0.3s, transform 0.3s;
             font-family: "Courier New", sans-serif;
+            margin-left: 10px;
         }
 
         button:hover {
@@ -68,18 +68,74 @@
             transform: scale(1.05);
         }
 
+        .button-container {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+
+        .profile-picture-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 5vh;
+        }
+
+        .profile-picture-container {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: white;
+            border-radius: 20px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            padding: 5px;
+            max-width: 620px;
+            height: 80vh;
+            margin: 0 10px;
+        }
+
+        .profile-picture {
+            width: 90%;
+            height: 90%;
+            object-fit: cover;
+            border-radius: 10px;
+            border: 3px solid #00008B;
+        }
+
+        @media (max-width: 768px) {
+            .profile-picture-row {
+                flex-direction: column;
+            }
+
+            .profile-picture {
+                width: 100%;
+                height: auto;
+            }
+        }
+
     </style>
 </head>
 <body>
 
     <h1>{{ month }} {{ day }}, 2025</h1>
     <div class="form-container">
-        <a href="{% url 'profile' %}"><button>Profile</button></a>
+        <div class="button-container">
+            <a href="{% url 'calendar' %}"><button>Back To Calendar</button></a>
+            <a href="{% url 'profile' %}"><button>Profile</button></a>
+        </div>
+
         <form action="/days/{{ month }}/{{ day }}/" method="POST">
             {% csrf_token %}
-            <div class="input-group">
-                <label for="textbox1">Upload Today's Picture</label>
-                <input type="text" id="textbox1" name="textbox1">
+
+            <div class="profile-picture-row">
+                <div class="profile-picture-container">
+                    <img src="profile-picture.jpg" alt="Profile Picture" class="profile-picture">
+                </div>
+
+                <div class="profile-picture-container">
+                    <img src="profile-picture.jpg" alt="Profile Picture" class="profile-picture">
+                </div>
             </div>
 
             <div class="input-group">
@@ -101,8 +157,9 @@
                 <label for="textbox5">Additional Notes</label>
                 <input type="text" id="textbox5" name="textbox5" value="{{ notes }}">
             </div>
-            <button type="submit">Save</button>
-
+            <div class="button-container">
+                <button type="submit">Save</button>
+            </div>
         </form>
     </div>
 
