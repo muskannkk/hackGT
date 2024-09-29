@@ -140,6 +140,7 @@
                 <div>Sun</div><div>Mon</div><div>Tue</div><div>Wed</div><div>Thu</div><div>Fri</div><div>Sat</div>
             </div>
             <div class="days">
+            <div></div><div></div><div></div>
                     {% for day in days_in_month %}
                       <a href="{% url 'days' month='January' day=day %}">
                       <button>{{ day }}</button>
@@ -160,6 +161,7 @@
                 <div>Sat</div>
             </div>
             <div class="days">
+            <div></div><div></div><div></div><div></div><div></div><div></div>
                 {% for day in days_in_month|slice:":28" %}
                     <a href="{% url 'days' month='February' day=day %}">
                         <button>{{ day }}</button>
@@ -180,6 +182,7 @@
                 <div>Sat</div>
             </div>
             <div class="days">
+            <div></div><div></div><div></div><div></div><div></div><div></div>
                 {% for day in days_in_month %}
                     <a href="{% url 'days' month='March' day=day %}">
                       <button>{{ day }}</button>
@@ -194,6 +197,7 @@
                 <div>Sun</div><div>Mon</div><div>Tue</div><div>Wed</div><div>Thu</div><div>Fri</div><div>Sat</div>
             </div>
             <div class="days">
+            <div></div><div></div>
                 {% for day in days_in_month|slice:":30" %}
                       <a href="{% url 'days' month='April' day=day %}">
                       <button>{{ day }}</button>
@@ -214,6 +218,7 @@
                 <div>Sat</div>
             </div>
             <div class="days">
+            <div></div><div></div><div></div><div></div>
                 {% for day in days_in_month %}
                       <a href="{% url 'days' month='May' day=day %}">
                       <button>{{ day }}</button>
@@ -254,6 +259,7 @@
                 <div>Sat</div>
             </div>
             <div class="days">
+            <div></div><div></div>
                 {% for day in days_in_month %}
                       <a href="{% url 'days' month='July' day=day %}">
                       <button>{{ day }}</button>
@@ -274,6 +280,7 @@
                 <div>Sat</div>
             </div>
             <div class="days">
+            <div></div><div></div><div></div><div></div><div></div>
                 {% for day in days_in_month %}
                       <a href="{% url 'days' month='August' day=day %}">
                       <button>{{ day }}</button>
@@ -294,6 +301,7 @@
                 <div>Sat</div>
             </div>
             <div class="days">
+            <div></div>
                 {% for day in days_in_month|slice:":30" %}
                       <a href="{% url 'days' month='September' day=day %}">
                       <button>{{ day }}</button>
@@ -314,6 +322,7 @@
                 <div>Sat</div>
             </div>
             <div class="days">
+            <div></div><div></div><div></div>
                 {% for day in days_in_month %}
                       <a href="{% url 'days' month='October' day=day %}">
                       <button>{{ day }}</button>
@@ -334,6 +343,7 @@
                 <div>Sat</div>
             </div>
             <div class="days">
+            <div></div><div></div><div></div><div></div><div></div><div></div>
                 {% for day in days_in_month|slice:":30" %}
                       <a href="{% url 'days' month='November' day=day %}">
                       <button>{{ day }}</button>
@@ -354,6 +364,7 @@
                 <div>Sat</div>
             </div>
             <div class="days">
+            <div></div>
                 {% for day in days_in_month %}
                       <a href="{% url 'days' month='December' day=day %}">
                       <button>{{ day }}</button>
